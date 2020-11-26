@@ -1,3 +1,4 @@
+const path = require('path');
 const { HashedModuleIdsPlugin } = require('webpack').ids;
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
@@ -57,7 +58,7 @@ module.exports = merge(webpackCommon, {
     // -> 進行壓縮
     new HTMLWebpackPlugin({
       inject: true,
-      template: process.cwd() + '/public/index.html',
+      template: path(__dirname, '../public/index.html'),
       minify: {
         minifyJS: true,
         minifyCSS: true,
