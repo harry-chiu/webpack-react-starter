@@ -1,3 +1,4 @@
+const path = require('path');
 const { HotModuleReplacementPlugin } = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
@@ -31,7 +32,7 @@ module.exports = merge(webpackCommon, {
     // -> 產生 html 至打包後的專案中
     new HTMLWebpackPlugin({
       inject: true,
-      template: '/public/index.html',
+      template: path.resolve(__dirname, '../public/index.html'),
     }),
 
     // circular-dependency-plugin 插件
@@ -46,7 +47,8 @@ module.exports = merge(webpackCommon, {
   devServer: {
     host: 'localhost',
     port: 8080,
-    contentBase: '/build',
+    publicPath: '/',
+    contentBase: path.resolve(__dirname, '../build'),
     hot: true,
     open: true,
     compress: true,
