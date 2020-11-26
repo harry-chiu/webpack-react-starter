@@ -1,4 +1,5 @@
 const path = require('path');
+const { DefinePlugin } = require('webpack');
 const { InjectManifest } = require('workbox-webpack-plugin');
 
 module.exports = {
@@ -131,6 +132,11 @@ module.exports = {
     // Workbox 插件
     new InjectManifest({
       swSrc: path.resolve(__dirname, '../src/service-worker.js'),
+    }),
+
+    // 全域變數 插件
+    new DefinePlugin({
+      ENV: JSON.stringify(process.env.NODE_ENV),
     }),
   ],
 
