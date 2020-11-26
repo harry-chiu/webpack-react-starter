@@ -4,12 +4,12 @@ const { InjectManifest } = require('workbox-webpack-plugin');
 
 module.exports = {
   // Application 入口
-  entry: path.resolve(process.cwd(), '/src/index.js'),
+  entry: path.resolve(__dirname, '../src/index.js'),
 
   // Application 輸出
   output: {
     // 輸出到此路徑
-    path: path.resolve(process.cwd(), '/build'),
+    path: path.resolve(__dirname, '../build'),
 
     // 若專案路徑不在 origin 的時候就需要設定
     // 詳細可參考：https://harry-chiu.gitbook.io/front-end-note/webpack/path-and-publicpath
@@ -17,7 +17,7 @@ module.exports = {
   },
 
   // 目標設定
-  target: ['web', 'es5'],
+  target: "web",
 
   // Loader 設定
   module: {
