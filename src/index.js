@@ -7,6 +7,6 @@ const container = document.getElementById('root');
 
 render(element, container);
 
-if ('serviceWorker' in navigator) {
+if (ENV === 'production' && 'serviceWorker' in navigator) {
   navigator.serviceWorker.register('./service-worker.js');
 }
