@@ -1,3 +1,6 @@
+const path = require('path');
+const { InjectManifest } = require('workbox-webpack-plugin');
+
 module.exports = {
   // Application 入口
   entry: process.cwd() + '/src/index.js',
@@ -25,6 +28,9 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
         },
       },
 
@@ -119,6 +125,14 @@ module.exports = {
       },
     ],
   },
+
+  // 插件設定
+  plugins: [
+    // Workbox 插件
+    new InjectManifest({
+      swSrc: path.resolve(__dirname, '../src/service-worker.js'),
+    }),
+  ],
 
   // Webpack 路徑相關設定
   resolve: {
