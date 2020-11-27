@@ -4,7 +4,11 @@ import includes from 'lodash/fp/includes';
 import { registerRoute } from 'workbox-routing';
 import { precacheAndRoute } from 'workbox-precaching';
 import { ExpirationPlugin } from 'workbox-expiration';
-import { CacheFirst, StaleWhileRevalidate } from 'workbox-strategies';
+import {
+  CacheFirst,
+  NetworkFirst,
+  StaleWhileRevalidate,
+} from 'workbox-strategies';
 import { version } from '../package.json';
 
 const replaceDotToDash = replace('.', '-');
@@ -31,18 +35,23 @@ clearCache();
 
 registerRoute(
   new RegExp(/\.(png|svg|jpg|jpeg|gif|webp|webm)$/),
-  new StaleWhileRevalidate({ cacheName: `${VERSION}-images` }),
+  new StaleWhileRevalidate({ cacheName: `images-${VERSION}` }),
 );
 
 registerRoute(
   new RegExp(/\.(ttf|otf)$/),
   new CacheFirst({
-    cacheName: `${VERSION}-fonts`,
+    cacheName: `fonts-${VERSION}`,
     plugins: [new ExpirationPlugin({ maxAgeSeconds: 30 * DAY })],
   }),
 );
 
 registerRoute(
+  ({ request }) => request.url,
+  new NetworkFirst({ cacheName: `source-${VERSION}` }),
+);
+
+registerRoute(
   new RegExp(/\.(js|js\.gz)$/),
-  new StaleWhileRevalidate({ cacheName: `${VERSION}-js` }),
+  new StaleWhileRevalidate({ cacheName: `source-${VERSION}` }),
 );
