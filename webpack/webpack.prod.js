@@ -58,7 +58,7 @@ module.exports = merge(webpackCommon, {
     // -> 進行壓縮
     new HTMLWebpackPlugin({
       inject: true,
-      template: path(__dirname, '../public/index.html'),
+      template: path.resolve(__dirname, '../public/index.html'),
       minify: {
         minifyJS: true,
         minifyCSS: true,
