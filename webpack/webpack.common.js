@@ -1,5 +1,6 @@
 const path = require('path');
 const { DefinePlugin } = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { InjectManifest } = require('workbox-webpack-plugin');
 
 module.exports = {
@@ -17,7 +18,7 @@ module.exports = {
   },
 
   // 目標設定
-  target: "web",
+  target: 'web',
 
   // Loader 設定
   module: {
@@ -137,6 +138,20 @@ module.exports = {
     // 全域變數 插件
     new DefinePlugin({
       ENV: JSON.stringify(process.env.NODE_ENV),
+    }),
+
+    // Copy 插件
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, '../public/icon.png'),
+          to: path.resolve(__dirname, '../build/icon.png'),
+        },
+        {
+          from: path.resolve(__dirname, '../public/manifest.json'),
+          to: path.resolve(__dirname, '../build/manifest.json'),
+        },
+      ],
     }),
   ],
 
