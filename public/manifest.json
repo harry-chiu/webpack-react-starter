@@ -1,0 +1,14 @@
+{
+  "name": "Webpack React Starter",
+  "short_name": "React Starter",
+  "start_url": "/?source=pwa",
+  "display": "standalone",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "./icon.png",
+      "type": "image/png",
+      "size": "64x64"
+    }
+  ]
+}
