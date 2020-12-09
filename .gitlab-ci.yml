@@ -1,0 +1,31 @@
+image: node:latest
+
+stages:
+  - release
+
+.CACHE_NODE_MODULES:
+  cache:
+    policy: pull
+    paths:
+      - node_modules/
+
+.SET_SSH:
+  before_script: &SET_SSH
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+    - yarn config set cache-folder .yarn
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+
+Release:
+  stage: release
+  tags:
+    - node
+  before_script: *SET_SSH
+  script:
+    - yarn
+    - npx semantic-release
