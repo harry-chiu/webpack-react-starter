@@ -15,6 +15,7 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "regenerator-runtime": "^0.13.7",
     "styled-components": "^5.2.1",
     "workbox-expiration": "^5.1.4",
     "workbox-precaching": "^5.1.4",
