@@ -3,6 +3,4 @@
 
 # 忽略自動生成的檔案
 node_modules
-package-lock.json
-yarn.lock
 build
