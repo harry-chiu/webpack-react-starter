@@ -54,8 +54,8 @@ module.exports = merge(webpackCommon, {
   // Plugin 設定
   plugins: [
     // webpack-html-plugin 插件
-    // -> 產生 html 至打包後的專案中
-    // -> 進行壓縮
+    // 產生 html 至打包後的專案中
+    // 進行壓縮
     new HTMLWebpackPlugin({
       inject: true,
       template: path.resolve(__dirname, '../public/index.html'),
@@ -74,7 +74,7 @@ module.exports = merge(webpackCommon, {
     }),
 
     // compression-webpack-plugin 插件
-    // -> 將大於 10kb 的檔案壓縮成 gzip
+    // 將大於 10kb 的檔案壓縮成 gzip
     new CompressionWebpackPlugin({
       algorithm: 'gzip',
       test: /\.(js|css|html)$/,
@@ -90,16 +90,16 @@ module.exports = merge(webpackCommon, {
     }),
 
     // clean-webpack-plugin
-    // -> 打包前移除打包資料夾中的舊檔案
+    // 打包前移除打包資料夾中的舊檔案
     new CleanWebpackPlugin(),
 
     // webpack-bundle-analyzer
-    // -> 分析打包後的專案大小
+    // 分析打包後的專案大小
     new BundleAnalyzerPlugin(),
   ],
 
   // 性能相關
-  // -> 篩選要計算性能的檔案
+  // 篩選要計算性能的檔案
   performance: {
     hints: 'error',
   },

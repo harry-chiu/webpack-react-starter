@@ -24,7 +24,7 @@ module.exports = {
   module: {
     rules: [
       // babel-loader
-      // -> 編譯 js/jsx 檔案
+      // 編譯 js/jsx 檔案
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
@@ -37,7 +37,7 @@ module.exports = {
       },
 
       // style-loader/css-loader
-      // -> 編譯此專案的 css 檔案
+      // 編譯此專案的 css 檔案
       {
         test: /\.css$/,
         exclude: /node_modules/,
@@ -45,7 +45,7 @@ module.exports = {
       },
 
       // style-loader/css-loader
-      // -> 編譯第三方套件的 css 檔案
+      // 編譯第三方套件的 css 檔案
       {
         test: /\.css$/,
         include: /node_modules/,
@@ -53,22 +53,22 @@ module.exports = {
       },
 
       // file-loader
-      // -> 編譯字體檔案
+      // 編譯字體檔案
       {
         test: /\.(eot|otf|ttf|woff|woff2)$/,
         use: 'file-loader',
       },
 
       // image-webpack-loader/url-loader
-      // -> 處理圖片資源
+      // 處理圖片資源
       //
-      // [注意：執行順序為 image-webpack-loader -> url-loader]
+      // [注意：執行順序為 image-webpack-loader url-loader]
       {
         test: /\.(jpg|jpeg|png|gif|svg)$/,
         use: [
           {
             // url-loader
-            // -> 壓縮後圖檔小於 8 kb 時轉為 base64
+            // 壓縮後圖檔小於 8 kb 時轉為 base64
             loader: 'url-loader',
             options: {
               limit: 1024 * 8,
@@ -76,7 +76,7 @@ module.exports = {
           },
           {
             // image-webpack-loader
-            // -> 編譯及壓縮圖片
+            // 編譯及壓縮圖片
             loader: 'image-webpack-loader',
             options: {
               disable: process.env.NODE_ENV === 'production' ? false : true,
@@ -108,14 +108,14 @@ module.exports = {
       },
 
       // html-loader
-      // -> 編譯 HTML
+      // 編譯 HTML
       {
         test: /\.html$/,
         use: 'html-loader',
       },
 
       // url-loader
-      // -> 編譯 mp4/webm 音源檔
+      // 編譯 mp4/webm 音源檔
       {
         test: /\.(mp4|webm)$/,
         use: {
