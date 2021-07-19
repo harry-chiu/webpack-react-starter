@@ -25,16 +25,16 @@ module.exports = {
     rules: [
       // babel-loader
       // 編譯 js/jsx 檔案
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-          },
-        },
-      },
+      // {
+      //   test: /\.(js|jsx)$/,
+      //   exclude: /node_modules/,
+      //   use: {
+      //     loader: 'babel-loader',
+      //     options: {
+      //       presets: ['@babel/preset-env', '@babel/preset-react'],
+      //     },
+      //   },
+      // },
 
       // style-loader/css-loader
       // 編譯此專案的 css 檔案

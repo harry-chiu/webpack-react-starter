@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from './style';
 
-const App = () => <Container>React Template</Container>;
+const App = () => <Container>Webpack React Template</Container>;
 
 export default App;
