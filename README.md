@@ -2,27 +2,16 @@
 
 A basic webpack starter for React.
 
-## Loaders
+## Includes
 
-- babel-loader
-- css-loader
-- file-loader
-- html-loader
-- image-webpack-loader
-- style-loader
-- url-loader
-
-## Plugins
-
-- clean-webpack-plugin
-- circular-dependency-plugin
-- compression-webpack-plugin
-- html-webpack-plugin
-- terser-webpack-plugin
-- webpack-bundle-analyzer
-
-## Babel
-
-- @babel/core
-- @babel/preset-env
-- @babel/preset-react
+- Webpack
+- Babel
+- ESLint
+- Prettier
+- Sementic Release
+- GitLab CI
+- GitHub Actions
+- Husky + CommitLint
+- React
+- Jest
+- React Testing Library
