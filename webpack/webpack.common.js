@@ -23,6 +23,16 @@ module.exports = {
   // Loader 設定
   module: {
     rules: [
+      // babel-loader
+      // 編譯 js/jsx 檔案
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+
       // style-loader/css-loader
       // 編譯此專案的 css 檔案
       {
